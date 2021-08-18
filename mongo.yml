@@ -10,7 +10,8 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: password 
     container_name: db
-    volumes: shared_database:/data/db
+    volumes:
+      - shared_database:/data/db
  
   mongo-express:
     image: mongo-express:latest
@@ -22,5 +23,5 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: password
       ME_CONFIG_MONGODB_URL: mongodb://root:password@mongo:27017/
  
-  volumes:
-    shared_database;
+volumes:
+  shared_database:
